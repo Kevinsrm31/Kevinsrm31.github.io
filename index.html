@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kevin Reyes — Data Engineer</title>
+<meta name="description" content="Portafolio de Kevin Reyes Morocho: Ingeniero Industrial y Civil e Ingeniero de Datos. Proyectos de Data Warehouse, ETL, PySpark, Kafka y APIs.">
+<meta property="og:title" content="Kevin Reyes — Data Engineer">
+<meta property="og:description" content="Ingeniero Industrial y Civil + Ingeniería de Datos: SQL · Python · PySpark · Kafka · Docker · FastAPI.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kevinsrm31.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f766e'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EKR%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f8fa; --surface:#ffffff; --surface-2:#f0f3f6; --text:#14181f; --muted:#5b6573;
+  --border:#e2e6eb; --accent:#0f766e; --accent-2:#0e7490; --accent-soft:#e6f4f2; --chip:#eef2f6;
+  --shadow:0 1px 2px rgba(16,24,40,.04),0 4px 16px rgba(16,24,40,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b0f14; --surface:#121820; --surface-2:#18202a; --text:#e6ebf1; --muted:#9aa6b4;
+    --border:#243040; --accent:#2dd4bf; --accent-2:#38bdf8; --accent-soft:#0f2a2a; --chip:#1b2531;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b0f14; --surface:#121820; --surface-2:#18202a; --text:#e6ebf1; --muted:#9aa6b4;
+  --border:#243040; --accent:#2dd4bf; --accent-2:#38bdf8; --accent-soft:#0f2a2a; --chip:#1b2531;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+html[data-lang="es"] [lang="en"]{display:none!important}
+html[data-lang="en"] [lang="es"]{display:none!important}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.brand{font-weight:800;letter-spacing:-.02em;color:var(--text)}
+.brand span{color:var(--accent)}
+.nav nav{display:flex;gap:22px;font-size:.92rem}
+.nav nav a{color:var(--muted)}
+.nav nav a:hover{color:var(--text);text-decoration:none}
+.tools{display:flex;gap:8px}
+.btn-sm{border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:8px;padding:6px 10px;font:600 .8rem Inter,sans-serif;cursor:pointer}
+.btn-sm:hover{border-color:var(--accent)}
+@media (max-width:760px){.nav nav{display:none}}
+
+/* hero */
+.hero{padding:72px 0 56px}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:.85rem;color:var(--accent);margin:0 0 14px}
+.hero h1{font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 14px;font-weight:800}
+.hero .role{font-size:clamp(1.05rem,2.2vw,1.3rem);color:var(--muted);margin:0 0 22px;font-weight:500}
+.hero p.lead{max-width:720px;font-size:1.05rem;margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font-weight:600;font-size:.95rem;border:1px solid var(--border);background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
+.btn:hover{text-decoration:none;border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .btn.primary{color:#04201d}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.primary{color:#04201d}}
+.btn svg{width:18px;height:18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px}
+.stat b{display:block;font-size:1.6rem;letter-spacing:-.02em}
+.stat span{color:var(--muted);font-size:.85rem}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* sections */
+section{padding:56px 0;border-top:1px solid var(--border)}
+.section-head{margin-bottom:28px}
+.section-head h2{font-size:1.75rem;letter-spacing:-.025em;margin:0 0 6px}
+.section-head p{color:var(--muted);margin:0;max-width:720px}
+.kicker{font-family:"JetBrains Mono",monospace;font-size:.8rem;color:var(--accent);margin-bottom:6px;display:block}
+
+/* about */
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:28px}
+.about p{margin:0 0 14px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 10px;font-size:1.05rem}
+.list{margin:0;padding-left:18px}
+.list li{margin-bottom:6px}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
+
+/* projects */
+.featured{display:grid;gap:22px}
+.proj{display:grid;grid-template-columns:1.05fr 1fr;gap:0;background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.proj .visual{background:var(--surface-2);display:flex;align-items:center;justify-content:center;padding:20px;border-right:1px solid var(--border);min-height:260px}
+.proj .visual img{border-radius:8px;background:#fff;max-height:300px;object-fit:contain}
+.proj .body{padding:26px}
+.proj h3{margin:0 0 8px;font-size:1.25rem;letter-spacing:-.015em}
+.proj p{margin:0 0 14px;color:var(--text)}
+.proj ul{margin:0 0 16px;padding-left:18px;color:var(--muted);font-size:.95rem}
+.badge{display:inline-block;font:600 .72rem "JetBrains Mono",monospace;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:3px 8px;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.chip{font:500 .75rem "JetBrains Mono",monospace;background:var(--chip);color:var(--text);border-radius:6px;padding:4px 8px}
+.links{display:flex;flex-wrap:wrap;gap:14px;font-weight:600;font-size:.92rem}
+@media (max-width:860px){.proj{grid-template-columns:1fr}.proj .visual{border-right:0;border-bottom:1px solid var(--border)}}
+.grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:22px}
+.mini{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;display:flex;flex-direction:column}
+.mini h4{margin:0 0 8px;font-size:1rem;letter-spacing:-.01em}
+.mini p{color:var(--muted);font-size:.92rem;margin:0 0 14px;flex:1}
+.mini .chips{margin-bottom:12px}
+.more-title{margin:40px 0 0;font-size:1.1rem}
+
+/* svg diagram */
+.arch{width:100%;max-width:460px;height:auto}
+.arch .box{fill:var(--surface);stroke:var(--border);stroke-width:1.5}
+.arch .box.hl{stroke:var(--accent);stroke-width:2}
+.arch text{fill:var(--text);font:600 12px Inter,sans-serif}
+.arch text.sub{fill:var(--muted);font:400 10.5px "JetBrains Mono",monospace}
+.arch .ln{stroke:var(--accent);stroke-width:2;fill:none}
+.arch .ar{fill:var(--accent)}
+
+/* stack */
+.stack{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:860px){.stack{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.stack{grid-template-columns:1fr}}
+.stack .card h3{font-size:.95rem;color:var(--muted);font-weight:600;margin-bottom:12px}
+
+/* experience */
+.timeline{position:relative;margin:0;padding:0;list-style:none}
+.timeline li{position:relative;padding:0 0 26px 28px;border-left:2px solid var(--border);margin-left:6px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--accent)}
+.timeline h4{margin:0;font-size:1rem}
+.timeline .meta{color:var(--muted);font-size:.88rem;margin-bottom:6px}
+.timeline p{margin:0;font-size:.95rem}
+.exp{display:grid;grid-template-columns:1.5fr 1fr;gap:28px}
+@media (max-width:860px){.exp{grid-template-columns:1fr}}
+
+/* certs & articles */
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.cert{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px}
+.cert .ic{flex:none;width:34px;height:34px;border-radius:8px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:800;font-size:.8rem}
+.cert b{display:block;font-size:.93rem;line-height:1.35}
+.cert .meta-c{color:var(--muted);font-size:.82rem}
+.articles{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.article{display:block;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;color:var(--text)}
+.article:hover{border-color:var(--accent);text-decoration:none}
+.article small{color:var(--accent);font:500 .75rem "JetBrains Mono",monospace}
+.article b{display:block;margin-top:6px;line-height:1.35}
+
+/* contact */
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:760px){.contact{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.contact{grid-template-columns:1fr}}
+.contact a,.contact div{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;color:var(--text)}
+.contact a:hover{border-color:var(--accent);text-decoration:none}
+.contact small{color:var(--muted);font-size:.8rem}
+.contact b{font-size:.95rem;word-break:break-word}
+footer{padding:28px 0 40px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand">Kevin<span>.</span>Reyes</a>
+    <nav>
+      <a href="#sobre-mi"><span lang="es">Sobre mí</span><span lang="en">About</span></a>
+      <a href="#proyectos"><span lang="es">Proyectos</span><span lang="en">Projects</span></a>
+      <a href="#stack">Stack</a>
+      <a href="#experiencia"><span lang="es">Experiencia</span><span lang="en">Experience</span></a>
+      <a href="#contacto"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+    </nav>
+    <div class="tools">
+      <button class="btn-sm" id="langBtn" type="button" aria-label="Cambiar idioma / Switch language">EN</button>
+      <button class="btn-sm" id="themeBtn" type="button" aria-label="Cambiar tema / Toggle theme">◐</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">// Data Engineer · Trujillo / Chimbote, Perú</p>
+    <h1>Kevin Steven Reyes Morocho</h1>
+    <p class="role">
+      <span lang="es">Ingeniero Industrial y Civil · Ingeniería de Datos</span>
+      <span lang="en">Industrial &amp; Civil Engineer · Data Engineering</span>
+    </p>
+    <p class="lead">
+      <span lang="es">Más de 5 años en operaciones, mantenimiento y gestión SSOMA en los sectores minero e industrial, consolidando y reportando indicadores para la toma de decisiones. A esa base sumo ingeniería de datos —SQL, Python, PySpark, Kafka, Docker y APIs— para construir modelos, pipelines y servicios que convierten datos operativos en decisiones.</span>
+      <span lang="en">5+ years in operations, maintenance, and HSE management in the mining and industrial sectors, consolidating and reporting indicators for decision-making. On top of that foundation I build data engineering solutions —SQL, Python, PySpark, Kafka, Docker, and APIs— turning operational data into decisions.</span>
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="cv/CV_Kevin_Reyes_Morocho_Data_Engineering_ES.pdf" lang="es" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Descargar CV</a>
+      <a class="btn primary" href="cv/CV_Kevin_Reyes_Morocho_Data_Engineering_EN.pdf" lang="en" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download CV</a>
+      <a class="btn" href="https://github.com/Kevinsrm31" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/kevin-steven-reyes-morocho-/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>LinkedIn</a>
+      <a class="btn" href="https://medium.com/@kevinsrm19" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12Zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42ZM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12Z"/></svg>Medium</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>8</b><span lang="es">proyectos publicados</span><span lang="en">published projects</span></div>
+      <div class="stat"><b>6</b><span lang="es">artículos técnicos</span><span lang="en">technical articles</span></div>
+      <div class="stat"><b>6</b><span lang="es">certificaciones en datos</span><span lang="en">data certifications</span></div>
+      <div class="stat"><b>5+</b><span lang="es">años en operaciones</span><span lang="en">years in operations</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="sobre-mi">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">01 /</span>
+      <h2><span lang="es">Sobre mí</span><span lang="en">About me</span></h2>
+    </div>
+    <div class="about">
+      <div>
+        <p lang="es">Soy Ingeniero Industrial (titulado y colegiado, CIP 324926) y Bachiller en Ingeniería Civil. Mi carrera se construyó en planta y en campo: operaciones, mantenimiento y sistemas de gestión ISO 9001, 14001 y 45001, donde el día a día gira alrededor de indicadores, presupuestos y reportes para la toma de decisiones.</p>
+        <p lang="en">I am an Industrial Engineer (licensed, CIP 324926) with a Bachelor's degree in Civil Engineering. My career was built on the plant floor and in the field: operations, maintenance, and ISO 9001, 14001, and 45001 management systems, where daily work revolves around indicators, budgets, and reports for decision-making.</p>
+        <p lang="es">Ese contacto directo con los datos operativos —de dónde salen, qué tan confiables son y qué decisiones dependen de ellos— es lo que hoy llevo a la ingeniería de datos: diseño modelos dimensionales, construyo pipelines ETL y de streaming, proceso datos con Spark y expongo servicios mediante APIs.</p>
+        <p lang="en">That hands-on experience with operational data —where it comes from, how reliable it is, and which decisions depend on it— is what I now bring to data engineering: I design dimensional models, build ETL and streaming pipelines, process data with Spark, and expose services through APIs.</p>
+        <p lang="es">Busco aportar esta combinación de procesos, sistemas de gestión y datos en un equipo de ingeniería de datos.</p>
+        <p lang="en">I am looking to bring this combination of processes, management systems, and data to a data engineering team.</p>
+      </div>
+      <div class="card">
+        <h3><span lang="es">Lo que aporto</span><span lang="en">What I bring</span></h3>
+        <ul class="list">
+          <li lang="es">Modelado de datos OLTP y dimensional (esquema estrella)</li>
+          <li lang="en">OLTP and dimensional data modeling (star schema)</li>
+          <li lang="es">Pipelines ETL en Python, contenerizados con Docker</li>
+          <li lang="en">Python ETL pipelines, containerized with Docker</li>
+          <li lang="es">Procesamiento batch y en tiempo real con Spark y Kafka</li>
+          <li lang="en">Batch and real-time processing with Spark and Kafka</li>
+          <li lang="es">APIs REST con FastAPI desplegadas en la nube</li>
+          <li lang="en">REST APIs with FastAPI deployed to the cloud</li>
+          <li lang="es">Criterio de negocio: KPIs, presupuestos y operación real</li>
+          <li lang="en">Business sense: KPIs, budgets, and real-world operations</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="proyectos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">02 /</span>
+      <h2><span lang="es">Proyectos</span><span lang="en">Projects</span></h2>
+      <p lang="es">Cada proyecto tiene su repositorio con código, documentación y, en varios casos, un artículo técnico que explica el proceso paso a paso.</p>
+      <p lang="en">Every project has its own repository with code and documentation and, in several cases, a technical article explaining the process step by step.</p>
+    </div>
+
+    <div class="featured">
+      <!-- Kafka -->
+      <article class="proj">
+        <div class="visual">
+          <svg class="arch" viewBox="0 0 460 250" role="img" aria-label="Productor → Kafka → Spark Structured Streaming → consola y tabla SQL">
+            <defs><marker id="m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ar" d="M0 0L10 5L0 10z"/></marker></defs>
+            <rect class="box" x="10" y="95" width="100" height="60" rx="10"/>
+            <text x="60" y="122" text-anchor="middle">Producer</text><text class="sub" x="60" y="140" text-anchor="middle">producer.py</text>
+            <rect class="box hl" x="150" y="80" width="120" height="90" rx="10"/>
+            <text x="210" y="112" text-anchor="middle">Apache Kafka</text><text class="sub" x="210" y="130" text-anchor="middle">actividad-topic</text><text class="sub" x="210" y="148" text-anchor="middle">+ Zookeeper</text>
+            <rect class="box hl" x="310" y="80" width="140" height="90" rx="10"/>
+            <text x="380" y="112" text-anchor="middle">Spark Structured</text><text x="380" y="128" text-anchor="middle">Streaming</text><text class="sub" x="380" y="148" text-anchor="middle">micro-batches</text>
+            <rect class="box" x="300" y="200" width="70" height="40" rx="8"/><text class="sub" x="335" y="224" text-anchor="middle">console</text>
+            <rect class="box" x="380" y="200" width="70" height="40" rx="8"/><text class="sub" x="415" y="224" text-anchor="middle">SQL table</text>
+            <path class="ln" d="M110 125H146" marker-end="url(#m)"/>
+            <path class="ln" d="M270 125H306" marker-end="url(#m)"/>
+            <path class="ln" d="M350 170V196" marker-end="url(#m)"/>
+            <path class="ln" d="M410 170V196" marker-end="url(#m)"/>
+            <rect class="box" x="10" y="12" width="440" height="40" rx="8" style="stroke-dasharray:5 4"/>
+            <text class="sub" x="230" y="37" text-anchor="middle">docker-compose · zookeeper · kafka · spark · jupyterlab</text>
+          </svg>
+        </div>
+        <div class="body">
+          <span class="badge">STREAMING</span>
+          <h3><span lang="es">Procesamiento en tiempo real con Kafka y Spark</span><span lang="en">Real-time processing with Kafka and Spark</span></h3>
+          <p lang="es">Pipeline de streaming que procesa eventos a medida que llegan: Kafka recibe y almacena los eventos y Spark Structured Streaming los transforma en micro-batches, con salida a consola y a una tabla en memoria consultable con SQL. Los eventos simulan un turno de planta: arranques de máquinas, lecturas de temperatura y órdenes de mantenimiento.</p>
+          <p lang="en">Streaming pipeline that processes events as they arrive: Kafka receives and stores the events and Spark Structured Streaming transforms them in micro-batches, writing to the console and to an in-memory table queryable with SQL. Events simulate a plant shift: machine starts, temperature readings, and maintenance orders.</p>
+          <div class="chips"><span class="chip">Apache Kafka</span><span class="chip">Spark Structured Streaming</span><span class="chip">PySpark</span><span class="chip">Docker Compose</span><span class="chip">JupyterLab</span></div>
+          <div class="links">
+            <a href="https://github.com/Kevinsrm31/kafka-spark-streaming-docker" target="_blank" rel="noopener"><span lang="es">Repositorio →</span><span lang="en">Repository →</span></a>
+            <a href="https://medium.com/@kevinsrm19/pipeline-en-tiempo-real-con-docker-kafka-y-spark-structured-streaming-7f500eeafa1f" target="_blank" rel="noopener"><span lang="es">Artículo →</span><span lang="en">Article →</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- DW -->
+      <article class="proj">
+        <div class="visual"><img src="img/dw-star-schema.png" alt="Esquema estrella del Data Warehouse: factmovimiento con dimensiones de producto, usuario, proveedor y tiempo" loading="lazy" width="880" height="530"></div>
+        <div class="body">
+          <span class="badge">DATA WAREHOUSE</span>
+          <h3><span lang="es">Data Warehouse — Almacén de laboratorio clínico</span><span lang="en">Data Warehouse — Clinical lab inventory</span></h3>
+          <p lang="es">Esquema estrella construido sobre una base transaccional de inventario, para analizar el stock sin cruzar tablas a mano. Dimensiones de producto, usuario y proveedor, una dimensión de tiempo generada con CTE recursiva y una tabla de hechos de movimientos, con validación de integridad referencial.</p>
+          <p lang="en">Star schema built on top of a transactional inventory database, to analyze stock without manually joining tables. Product, user, and supplier dimensions, a time dimension generated with a recursive CTE, and a movements fact table, with referential integrity validation.</p>
+          <div class="chips"><span class="chip">MySQL</span><span class="chip">SQL</span><span class="chip">Star schema</span><span class="chip">OLTP → OLAP</span></div>
+          <div class="links">
+            <a href="https://github.com/Kevinsrm31/datawarehouse_almacen-laboratorio-clinico" target="_blank" rel="noopener"><span lang="es">Repositorio →</span><span lang="en">Repository →</span></a>
+            <a href="https://medium.com/@kevinsrm19/data-warehouse-de-almac%C3%A9n-laboratorio-cl%C3%ADnico-modelado-dimensional-mysql-ba9674ebb75d" target="_blank" rel="noopener"><span lang="es">Artículo →</span><span lang="en">Article →</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ETL -->
+      <article class="proj">
+        <div class="visual">
+          <svg class="arch" viewBox="0 0 460 250" role="img" aria-label="MySQL OLTP y CSV → Extract → Transform → Load → Data Warehouse">
+            <defs><marker id="m2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ar" d="M0 0L10 5L0 10z"/></marker></defs>
+            <rect class="box" x="10" y="40" width="100" height="50" rx="10"/><text x="60" y="62" text-anchor="middle">MySQL OLTP</text><text class="sub" x="60" y="78" text-anchor="middle">movies</text>
+            <rect class="box" x="10" y="160" width="100" height="50" rx="10"/><text x="60" y="182" text-anchor="middle">CSV</text><text class="sub" x="60" y="198" text-anchor="middle">awards · users</text>
+            <rect class="box hl" x="150" y="40" width="160" height="170" rx="12"/>
+            <text x="230" y="72" text-anchor="middle">Python ETL</text>
+            <text class="sub" x="230" y="100" text-anchor="middle">extract.py</text><text class="sub" x="230" y="122" text-anchor="middle">transform.py</text><text class="sub" x="230" y="144" text-anchor="middle">load.py</text><text class="sub" x="230" y="170" text-anchor="middle">pandas · SQLAlchemy</text><text class="sub" x="230" y="190" text-anchor="middle">validaciones / checks</text>
+            <rect class="box hl" x="350" y="90" width="100" height="70" rx="10"/><text x="400" y="118" text-anchor="middle">Data</text><text x="400" y="134" text-anchor="middle">Warehouse</text><text class="sub" x="400" y="150" text-anchor="middle">star schema</text>
+            <path class="ln" d="M110 65H146" marker-end="url(#m2)"/><path class="ln" d="M110 185H146" marker-end="url(#m2)"/><path class="ln" d="M310 125H346" marker-end="url(#m2)"/>
+            <text class="sub" x="230" y="238" text-anchor="middle">🐳 Docker</text>
+          </svg>
+        </div>
+        <div class="body">
+          <span class="badge">ETL</span>
+          <h3><span lang="es">Pipeline ETL en Python — OLTP a Data Warehouse</span><span lang="en">Python ETL pipeline — OLTP to Data Warehouse</span></h3>
+          <p lang="es">Servicio ETL modular que centraliza un catálogo de streaming (películas, usuarios y premios, en distintas fuentes y formatos) en un Data Warehouse dimensional. Transformación con validaciones explícitas (tipos, duplicados, catálogos) y carga idempotente; todo el entorno corre en Docker.</p>
+          <p lang="en">Modular ETL service that centralizes a streaming catalog (movies, users, and awards from different sources and formats) into a dimensional Data Warehouse. Transformation with explicit validations (types, duplicates, catalogs) and idempotent loading; the whole environment runs in Docker.</p>
+          <div class="chips"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">SQLAlchemy</span><span class="chip">MySQL</span><span class="chip">Docker</span></div>
+          <div class="links">
+            <a href="https://github.com/Kevinsrm31/etl-python_migracion-oltp-dw" target="_blank" rel="noopener"><span lang="es">Repositorio →</span><span lang="en">Repository →</span></a>
+            <a href="https://medium.com/@kevinsrm19/pipeline-etl-en-python-de-un-cat%C3%A1logo-transaccional-a-un-data-warehouse-458acace8819" target="_blank" rel="noopener"><span lang="es">Artículo →</span><span lang="en">Article →</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tools API -->
+      <article class="proj">
+        <div class="visual">
+          <svg class="arch" viewBox="0 0 460 250" role="img" aria-label="Endpoints de la API REST">
+            <rect class="box hl" x="30" y="20" width="400" height="210" rx="12"/>
+            <text x="50" y="50">Tools API · FastAPI</text><text class="sub" x="410" y="50" text-anchor="end">/docs (Swagger)</text>
+            <text class="sub" x="50" y="88">GET     /api/tools/get_all?category=</text>
+            <text class="sub" x="50" y="116">GET     /api/tools/{tool_id}</text>
+            <text class="sub" x="50" y="144">POST    /api/tools              → 201</text>
+            <text class="sub" x="50" y="172">PUT     /api/tools/{tool_id}    → 200 / 404</text>
+            <text class="sub" x="50" y="200">DELETE  /api/tools/{tool_id}    → 200 / 404</text>
+          </svg>
+        </div>
+        <div class="body">
+          <span class="badge">API · LIVE</span>
+          <h3>Tools API — <span lang="es">API REST con FastAPI</span><span lang="en">REST API with FastAPI</span></h3>
+          <p lang="es">API REST que expone operaciones CRUD sobre un catálogo de herramientas informáticas, con filtro por categoría, validación con Pydantic, códigos de estado HTTP y documentación OpenAPI. Desplegada en la nube con despliegue automático desde GitHub.</p>
+          <p lang="en">REST API exposing CRUD operations on a catalog of software tools, with category filtering, Pydantic validation, HTTP status codes, and OpenAPI documentation. Deployed to the cloud with automatic deployment from GitHub.</p>
+          <div class="chips"><span class="chip">FastAPI</span><span class="chip">Pydantic</span><span class="chip">REST</span><span class="chip">Render</span></div>
+          <div class="links">
+            <a href="https://tools-api-2quh.onrender.com/docs" target="_blank" rel="noopener"><span lang="es">Demo en vivo →</span><span lang="en">Live demo →</span></a>
+            <a href="https://github.com/Kevinsrm31/tools-api" target="_blank" rel="noopener"><span lang="es">Repositorio →</span><span lang="en">Repository →</span></a>
+          </div>
+          <p style="color:var(--muted);font-size:.82rem;margin:12px 0 0" lang="es">La demo usa el plan gratuito: si estuvo inactiva, la primera carga tarda unos 30–50 s.</p>
+          <p style="color:var(--muted);font-size:.82rem;margin:12px 0 0" lang="en">The demo runs on a free plan: if idle, the first load takes about 30–50 s.</p>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="more-title"><span lang="es">Más proyectos</span><span lang="en">More projects</span></h3>
+    <div class="grid3">
+      <div class="mini">
+        <h4><span lang="es">Modelado de base de datos OLTP</span><span lang="en">OLTP database modeling</span></h4>
+        <p lang="es">Modelo conceptual, lógico y físico del sistema de inventario de un laboratorio clínico, implementado en MySQL con diagramas entidad-relación y datos de prueba.</p>
+        <p lang="en">Conceptual, logical, and physical model of a clinical lab inventory system, implemented in MySQL with ER diagrams and sample data.</p>
+        <div class="chips"><span class="chip">MySQL</span><span class="chip">ER modeling</span></div>
+        <div class="links" style="font-size:.9rem">
+          <a href="https://github.com/Kevinsrm31/almacen-laboratorio-clinico-mysql" target="_blank" rel="noopener"><span lang="es">Repositorio →</span><span lang="en">Repository →</span></a>
+          <a href="https://medium.com/@kevinsrm19/almac%C3%A9n-de-laboratorio-cl%C3%ADnico-modelado-y-dise%C3%B1o-de-base-de-datos-mysql-3444feab04d4" target="_blank" rel="noopener"><span lang="es">Artículo →</span><span lang="en">Article →</span></a>
+        </div>
+      </div>
+      <div class="mini">
+        <h4><span lang="es">PySpark — Transformaciones y SQL</span><span lang="en">PySpark — Transformations &amp; SQL</span></h4>
+        <p lang="es">Filtrado, columnas calculadas, agregaciones, agrupamientos y consultas SQL directas sobre DataFrames, resuelto en Databricks.</p>
+        <p lang="en">Filtering, calculated columns, aggregations, grouping, and direct SQL queries on DataFrames, built in Databricks.</p>
+        <div class="chips"><span class="chip">PySpark</span><span class="chip">Databricks</span></div>
+        <div class="links" style="font-size:.9rem">
+          <a href="https://github.com/Kevinsrm31/pyspark-dataframes-transformaciones" target="_blank" rel="noopener"><span lang="es">Repositorio →</span><span lang="en">Repository →</span></a>
+          <a href="https://medium.com/@kevinsrm19/pyspark-en-apache-spark-transformaciones-agregaciones-y-consultas-sql-sobre-dataframes-0ea1ea038a9e" target="_blank" rel="noopener"><span lang="es">Artículo →</span><span lang="en">Article →</span></a>
+        </div>
+      </div>
+      <div class="mini">
+        <h4><span lang="es">PySpark ML — EDA y regresión</span><span lang="en">PySpark ML — EDA &amp; regression</span></h4>
+        <p lang="es">Análisis exploratorio y un modelo de regresión lineal con Spark ML (VectorAssembler + LinearRegression).</p>
+        <p lang="en">Exploratory analysis and a linear regression model with Spark ML (VectorAssembler + LinearRegression).</p>
+        <div class="chips"><span class="chip">Spark ML</span><span class="chip">PySpark</span></div>
+        <a href="https://github.com/Kevinsrm31/pyspark-ml-fundamentals" target="_blank" rel="noopener"><span lang="es">Repositorio →</span><span lang="en">Repository →</span></a>
+      </div>
+      <div class="mini">
+        <h4><span lang="es">Python — Análisis de Mundiales</span><span lang="en">Python — World Cup analysis</span></h4>
+        <p lang="es">Limpieza, transformación y análisis exploratorio de 20 Mundiales de fútbol, con ranking histórico de goleadores y visualizaciones.</p>
+        <p lang="en">Cleaning, transformation, and exploratory analysis of 20 FIFA World Cups, with an all-time top scorers ranking and visualizations.</p>
+        <div class="chips"><span class="chip">pandas</span><span class="chip">NumPy</span><span class="chip">Seaborn</span></div>
+        <a href="https://github.com/Kevinsrm31/python-fundamentos-analisis-mundiales" target="_blank" rel="noopener"><span lang="es">Repositorio →</span><span lang="en">Repository →</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">03 /</span>
+      <h2>Stack</h2>
+    </div>
+    <div class="stack">
+      <div class="card"><h3><span lang="es">Lenguajes y consultas</span><span lang="en">Languages &amp; querying</span></h3><div class="chips" style="margin:0"><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">NumPy</span></div></div>
+      <div class="card"><h3><span lang="es">Procesamiento</span><span lang="en">Processing</span></h3><div class="chips" style="margin:0"><span class="chip">PySpark</span><span class="chip">Spark Structured Streaming</span><span class="chip">Spark ML</span><span class="chip">Apache Kafka</span><span class="chip">Databricks</span></div></div>
+      <div class="card"><h3><span lang="es">Modelado y almacenamiento</span><span lang="en">Modeling &amp; storage</span></h3><div class="chips" style="margin:0"><span class="chip">MySQL</span><span class="chip">BigQuery</span><span class="chip">Star schema</span><span class="chip">ETL</span></div></div>
+      <div class="card"><h3><span lang="es">Servicios e infraestructura</span><span lang="en">Services &amp; infrastructure</span></h3><div class="chips" style="margin:0"><span class="chip">FastAPI</span><span class="chip">Docker</span><span class="chip">Docker Compose</span><span class="chip">Git / GitHub</span><span class="chip">Render</span></div></div>
+      <div class="card"><h3><span lang="es">Gestión y reporte</span><span lang="en">Management &amp; reporting</span></h3><div class="chips" style="margin:0"><span class="chip">Excel avanzado</span><span class="chip">Power BI</span><span class="chip">SAP / ERP</span><span class="chip">KPIs</span><span class="chip">ISO 9001 · 14001 · 45001</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experiencia">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">04 /</span>
+      <h2><span lang="es">Experiencia</span><span lang="en">Experience</span></h2>
+      <p lang="es">Operaciones, mantenimiento y SSOMA: trabajo diario con indicadores, presupuestos y reportes para la toma de decisiones.</p>
+      <p lang="en">Operations, maintenance, and HSE: daily work with indicators, budgets, and reports for decision-making.</p>
+    </div>
+    <div class="exp">
+      <ul class="timeline">
+        <li>
+          <h4><span lang="es">Ingeniero de Operaciones</span><span lang="en">Operations Engineer</span></h4>
+          <div class="meta">PILSAC – Sesuveca del Perú S.A.C. · 10/2025 – 07/2026</div>
+          <p lang="es">Consolidación y reporte diario de indicadores de producción y gestión de una planta de carbón antracita como base de las decisiones operativas; mantenimiento preventivo y predictivo; auditorías internas de SST.</p>
+          <p lang="en">Daily consolidation and reporting of production and management indicators for an anthracite coal plant as the basis for operational decisions; preventive and predictive maintenance; internal OHS audits.</p>
+        </li>
+        <li>
+          <h4><span lang="es">Supervisor SSOMA</span><span lang="en">HSE Supervisor</span></h4>
+          <div class="meta">MINCOAL S.A.C. · 06/2025 – 09/2025</div>
+          <p lang="es">Seguimiento continuo de los indicadores clave del sistema SSOMA en una planta de beneficio de mineral de hierro.</p>
+          <p lang="en">Continuous tracking of key HSE system indicators at an iron ore beneficiation plant.</p>
+        </li>
+        <li>
+          <h4><span lang="es">Supervisor SSOMA</span><span lang="en">HSE Supervisor</span></h4>
+          <div class="meta">Consultores de Ingeniería Proyectos · 04/2025 – 05/2025</div>
+          <p lang="es">Consolidación de evidencias e informes en el dossier técnico de cierre, validado sin observaciones; cero accidentes incapacitantes.</p>
+          <p lang="en">Consolidated evidence and reports into the technical closeout dossier, approved without observations; zero lost-time accidents.</p>
+        </li>
+        <li>
+          <h4><span lang="es">Supervisor de Seguridad y Salud en el Trabajo</span><span lang="en">Occupational Health &amp; Safety Supervisor</span></h4>
+          <div class="meta">Compañía Minera y Maderera RA&amp;OR S.R.L · 01/2024 – 03/2025</div>
+          <p lang="es">Seguimiento sistemático de indicadores que permitió reducir incidentes y el índice IDIA en un 60%.</p>
+          <p lang="en">Systematic indicator tracking that reduced incidents and the IDIA index by 60%.</p>
+        </li>
+        <li>
+          <h4><span lang="es">Coordinador de Mantenimiento e Infraestructura · Supervisor SSOMA</span><span lang="en">Maintenance &amp; Infrastructure Coordinator · HSE Supervisor</span></h4>
+          <div class="meta">Escacorp S.A.C. · 04/2021 – 12/2023</div>
+          <p lang="es">Control del presupuesto y cronograma de mantenimiento; indicadores de SST y auditorías para ISO 9001, 14001 y 45001.</p>
+          <p lang="en">Maintenance budget and schedule control; OHS indicators and audits for ISO 9001, 14001, and 45001.</p>
+        </li>
+        <li>
+          <h4><span lang="es">Experiencia previa</span><span lang="en">Earlier experience</span></h4>
+          <div class="meta">2017 – 2021</div>
+          <p lang="es">Supervisión de trabajos de alto riesgo (Servitec GH); gestión de pedidos con ERP y tablas dinámicas en Excel para grandes volúmenes de información (Estación de Servicios San José); estadísticas de compras y stock en Excel (almacén).</p>
+          <p lang="en">High-risk work supervision (Servitec GH); order management with an ERP and Excel pivot tables for large volumes of information (San José service station); purchasing and stock statistics in Excel (warehouse).</p>
+        </li>
+      </ul>
+      <div class="card" style="align-self:start">
+        <h3><span lang="es">Educación</span><span lang="en">Education</span></h3>
+        <p style="margin:0 0 4px"><b lang="es">Ingeniero Industrial, Título Profesional</b><b lang="en">Industrial Engineer, Professional Degree</b></p>
+        <p style="margin:0 0 14px;color:var(--muted);font-size:.9rem">Universidad Nacional de Trujillo · CIP 324926</p>
+        <p style="margin:0 0 4px"><b lang="es">Bachiller en Ingeniería Civil</b><b lang="en">Bachelor's Degree in Civil Engineering</b></p>
+        <p style="margin:0 0 14px;color:var(--muted);font-size:.9rem">Universidad Privada del Norte</p>
+        <h3 style="margin-top:6px"><span lang="es">Idiomas</span><span lang="en">Languages</span></h3>
+        <p style="margin:0;font-size:.92rem"><span lang="es">Español nativo · Inglés básico</span><span lang="en">Spanish (native) · English (basic)</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section id="certificaciones">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">05 /</span>
+      <h2><span lang="es">Certificaciones</span><span lang="en">Certifications</span></h2>
+    </div>
+    <div class="certs">
+      <div class="cert"><div class="ic">API</div><div><b><span lang="es">Fundamentos de consumo y construcción de APIs con Python</span><span lang="en">Fundamentals of Consuming and Building APIs with Python</span></b><span class="meta-c">Datapath · 2026</span></div></div>
+      <div class="cert"><div class="ic">SP</div><div><b>Apache Spark Fundamentals</b><span class="meta-c">Datapath · 2026</span></div></div>
+      <div class="cert"><div class="ic">SQL</div><div><b>SQL Para Todos — Google Cloud / BigQuery</b><span class="meta-c">Datapath · 2026</span></div></div>
+      <div class="cert"><div class="ic">PY</div><div><b>Python para Todos</b><span class="meta-c">DataHack · 2026</span></div></div>
+      <div class="cert"><div class="ic">PY</div><div><b><span lang="es">Python (básico – intermedio)</span><span lang="en">Python (basic – intermediate)</span></b><span class="meta-c">2026</span></div></div>
+      <div class="cert"><div class="ic">GIT</div><div><b><span lang="es">Fundamentos de Git en Cloud</span><span lang="en">Git Fundamentals in the Cloud</span></b><span class="meta-c">Datapath · 2026</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section id="articulos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">06 /</span>
+      <h2><span lang="es">Artículos</span><span lang="en">Articles</span></h2>
+      <p lang="es">Documento mis proyectos en Medium (en español).</p>
+      <p lang="en">I document my projects on Medium (in Spanish).</p>
+    </div>
+    <div class="articles">
+      <a class="article" href="https://medium.com/@kevinsrm19/pipeline-en-tiempo-real-con-docker-kafka-y-spark-structured-streaming-7f500eeafa1f" target="_blank" rel="noopener"><small>Streaming</small><b>Pipeline en tiempo real con Docker, Kafka y Spark Structured Streaming</b></a>
+      <a class="article" href="https://medium.com/@kevinsrm19/data-warehouse-de-almac%C3%A9n-laboratorio-cl%C3%ADnico-modelado-dimensional-mysql-ba9674ebb75d" target="_blank" rel="noopener"><small>Data Warehouse</small><b>Data Warehouse de Almacén — Laboratorio Clínico: Modelado Dimensional (MySQL)</b></a>
+      <a class="article" href="https://medium.com/@kevinsrm19/pipeline-etl-en-python-de-un-cat%C3%A1logo-transaccional-a-un-data-warehouse-458acace8819" target="_blank" rel="noopener"><small>ETL</small><b>Pipeline ETL en Python: de un catálogo transaccional a un Data Warehouse</b></a>
+      <a class="article" href="https://medium.com/@kevinsrm19/pyspark-en-apache-spark-transformaciones-agregaciones-y-consultas-sql-sobre-dataframes-0ea1ea038a9e" target="_blank" rel="noopener"><small>PySpark</small><b>PySpark en Apache Spark: transformaciones, agregaciones y consultas SQL sobre DataFrames</b></a>
+      <a class="article" href="https://medium.com/@kevinsrm19/almac%C3%A9n-de-laboratorio-cl%C3%ADnico-modelado-y-dise%C3%B1o-de-base-de-datos-mysql-3444feab04d4" target="_blank" rel="noopener"><small><span lang="es">Modelado de datos</span><span lang="en">Data modeling</span></small><b>Almacén de Laboratorio Clínico — Modelado y Diseño de Base de Datos (MySQL)</b></a>
+      <a class="article" href="https://medium.com/@kevinsrm19/dise%C3%B1o-de-una-arquitectura-de-datos-para-diagnosticar-y-reducir-el-abandono-el-caso-shopstart-cb2ebdfc81bd" target="_blank" rel="noopener"><small><span lang="es">Arquitectura de datos</span><span lang="en">Data architecture</span></small><b>Diseño de una arquitectura de datos para diagnosticar y reducir el abandono: el caso ShopStart</b></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contacto">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">07 /</span>
+      <h2><span lang="es">Contacto</span><span lang="en">Contact</span></h2>
+      <p lang="es">Disponible para posiciones de ingeniería de datos (presencial o híbrido).</p>
+      <p lang="en">Open to data engineering roles (on-site or hybrid).</p>
+    </div>
+    <div class="contact">
+      <a href="mailto:kevinsrm19@gmail.com"><small><span lang="es">Correo</span><span lang="en">Email</span></small><b>kevinsrm19@gmail.com</b></a>
+      <a href="tel:+51926255078"><small><span lang="es">Celular</span><span lang="en">Phone</span></small><b>+51 926 255 078</b></a>
+      <a href="https://www.linkedin.com/in/kevin-steven-reyes-morocho-/" target="_blank" rel="noopener"><small>LinkedIn</small><b>in/kevin-steven-reyes-morocho-</b></a>
+      <a href="https://github.com/Kevinsrm31" target="_blank" rel="noopener"><small>GitHub</small><b>github.com/Kevinsrm31</b></a>
+      <a href="https://medium.com/@kevinsrm19" target="_blank" rel="noopener"><small>Medium</small><b>medium.com/@kevinsrm19</b></a>
+      <div><small><span lang="es">Ubicación</span><span lang="en">Location</span></small><b>Trujillo / Chimbote, Perú</b></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="yr">2026</span> Kevin Steven Reyes Morocho</div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, langBtn=document.getElementById('langBtn'), themeBtn=document.getElementById('themeBtn');
+  function get(k){try{return localStorage.getItem(k)}catch(e){return null}}
+  function set(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+  function applyLang(l){root.setAttribute('data-lang',l);root.setAttribute('lang',l);langBtn.textContent=l==='es'?'EN':'ES';
+    document.title=l==='es'?'Kevin Reyes — Ingeniero de Datos':'Kevin Reyes — Data Engineer';}
+  var saved=get('lang'), nav=(navigator.language||'es').toLowerCase();
+  applyLang(saved||(nav.indexOf('es')===0?'es':'en'));
+  langBtn.addEventListener('click',function(){var l=root.getAttribute('data-lang')==='es'?'en':'es';applyLang(l);set('lang',l);});
+  var th=get('theme'); if(th){root.setAttribute('data-theme',th);}
+  themeBtn.addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var nx=cur==='dark'?'light':'dark';root.setAttribute('data-theme',nx);set('theme',nx);});
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
