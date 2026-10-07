@@ -9,7 +9,8 @@ Página estática (HTML + CSS + JavaScript, sin dependencias de build), bilingü
 ```
 ├── index.html   # página completa
 ├── img/         # diagramas de los proyectos
-└── cv/          # CV de Data Engineering (ES / EN)
+├── cv/          # CV de Data Engineering (ES / EN)
+└── certificados/ # certificados de cursos (PDF)
 ```
 
 Contacto: [LinkedIn](https://www.linkedin.com/in/kevin-steven-reyes-morocho-/) · [Medium](https://medium.com/@kevinsrm19)
