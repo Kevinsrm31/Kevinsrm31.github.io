@@ -207,8 +207,8 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.85rem;border-top:1px so
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12Zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42ZM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12Z"/></svg>Medium</a>
     </div>
     <div class="stats">
-      <div class="stat"><b>8</b><span lang="es">proyectos publicados</span><span lang="en">published projects</span></div>
-      <div class="stat"><b>6</b><span lang="es">artículos técnicos</span><span lang="en">technical articles</span></div>
+      <div class="stat"><b>9</b><span lang="es">proyectos publicados</span><span lang="en">published projects</span></div>
+      <div class="stat"><b>7</b><span lang="es">artículos técnicos</span><span lang="en">technical articles</span></div>
       <div class="stat"><b>5</b><span lang="es">certificaciones en datos</span><span lang="en">data certifications</span></div>
       <div class="stat"><b>5+</b><span lang="es">años en operaciones</span><span lang="en">years in operations</span></div>
     </div>
@@ -261,6 +261,39 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.85rem;border-top:1px so
     </div>
 
     <div class="featured">
+      <!-- Airflow ETL ventas -->
+      <article class="proj">
+        <div class="visual">
+          <svg class="arch" viewBox="0 0 460 250" role="img" aria-label="CSV diario → DAG de Airflow (extraer, transformar, validar calidad, cargar, resumen) → PostgreSQL, con pruebas y CI">
+            <defs><marker id="m3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ar" d="M0 0L10 5L0 10z"/></marker></defs>
+            <rect class="box" x="10" y="85" width="80" height="60" rx="10"/><text x="50" y="110" text-anchor="middle">CSV</text><text class="sub" x="50" y="128" text-anchor="middle">ventas/día</text>
+            <rect class="box hl" x="115" y="15" width="205" height="185" rx="12"/>
+            <text x="217" y="40" text-anchor="middle">Airflow DAG</text>
+            <text class="sub" x="135" y="66">1 extraer</text>
+            <text class="sub" x="135" y="90">2 transformar (8 reglas)</text>
+            <text class="sub" x="135" y="114">3 validar_calidad ≤ 20 %</text>
+            <text class="sub" x="135" y="138">4 cargar (1 transacción)</text>
+            <text class="sub" x="135" y="162">5 actualizar_resumen</text>
+            <text class="sub" x="135" y="186">idempotente por fecha</text>
+            <rect class="box hl" x="350" y="65" width="100" height="100" rx="10"/><text x="400" y="90" text-anchor="middle">PostgreSQL</text><text class="sub" x="400" y="112" text-anchor="middle">limpias</text><text class="sub" x="400" y="130" text-anchor="middle">rechazadas</text><text class="sub" x="400" y="148" text-anchor="middle">resumen</text>
+            <path class="ln" d="M90 115H111" marker-end="url(#m3)"/><path class="ln" d="M320 115H346" marker-end="url(#m3)"/>
+            <rect class="box" x="10" y="212" width="440" height="30" rx="8" style="stroke-dasharray:5 4"/>
+            <text class="sub" x="230" y="231" text-anchor="middle">pytest (67 pruebas) · GitHub Actions CI · Docker Compose</text>
+          </svg>
+        </div>
+        <div class="body">
+          <span class="badge">ORQUESTACIÓN · CI</span>
+          <h3><span lang="es">ETL de ventas con Airflow, pruebas y CI</span><span lang="en">Sales ETL with Airflow, tests, and CI</span></h3>
+          <p lang="es">Pipeline orquestado con Airflow que carga el archivo diario de ventas en PostgreSQL: valida cada fila con 8 reglas y guarda el motivo de cada rechazo, detiene la carga si se rechaza más del 20 % del archivo y reemplaza la fecha en una sola transacción, así que repetir una corrida no duplica datos. 67 pruebas con pytest corren en GitHub Actions en cada push y pull request.</p>
+          <p lang="en">Airflow-orchestrated pipeline that loads the daily sales file into PostgreSQL: it validates each row against 8 rules and stores the reason for every rejection, stops the load if more than 20% of the file is rejected, and replaces the date in a single transaction, so re-running never duplicates data. 67 pytest tests run on GitHub Actions on every push and pull request.</p>
+          <div class="chips"><span class="chip">Apache Airflow</span><span class="chip">PostgreSQL</span><span class="chip">pytest</span><span class="chip">GitHub Actions</span><span class="chip">Docker Compose</span></div>
+          <div class="links">
+            <a href="https://github.com/Kevinsrm31/etl-ventas-airflow" target="_blank" rel="noopener"><span lang="es">Repositorio →</span><span lang="en">Repository →</span></a>
+            <a href="https://medium.com/@kevinsrm19/pipeline-etl-de-ventas-con-airflow-pruebas-y-ci-validar-antes-de-cargar-759e2e20d627" target="_blank" rel="noopener"><span lang="es">Artículo →</span><span lang="en">Article →</span></a>
+          </div>
+        </div>
+      </article>
+
       <!-- Kafka -->
       <article class="proj">
         <div class="visual">
@@ -417,9 +450,9 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.85rem;border-top:1px so
     </div>
     <div class="stack">
       <div class="card"><h3><span lang="es">Lenguajes y consultas</span><span lang="en">Languages &amp; querying</span></h3><div class="chips" style="margin:0"><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">NumPy</span></div></div>
-      <div class="card"><h3><span lang="es">Procesamiento</span><span lang="en">Processing</span></h3><div class="chips" style="margin:0"><span class="chip">PySpark</span><span class="chip">Spark Structured Streaming</span><span class="chip">Spark ML</span><span class="chip">Apache Kafka</span><span class="chip">Databricks</span></div></div>
-      <div class="card"><h3><span lang="es">Modelado y almacenamiento</span><span lang="en">Modeling &amp; storage</span></h3><div class="chips" style="margin:0"><span class="chip">MySQL</span><span class="chip">BigQuery</span><span class="chip">Star schema</span><span class="chip">ETL</span></div></div>
-      <div class="card"><h3><span lang="es">Servicios e infraestructura</span><span lang="en">Services &amp; infrastructure</span></h3><div class="chips" style="margin:0"><span class="chip">FastAPI</span><span class="chip">Docker</span><span class="chip">Docker Compose</span><span class="chip">Git / GitHub</span><span class="chip">Render</span></div></div>
+      <div class="card"><h3><span lang="es">Procesamiento</span><span lang="en">Processing</span></h3><div class="chips" style="margin:0"><span class="chip">PySpark</span><span class="chip">Spark Structured Streaming</span><span class="chip">Spark ML</span><span class="chip">Apache Kafka</span><span class="chip">Databricks</span><span class="chip">Apache Airflow</span></div></div>
+      <div class="card"><h3><span lang="es">Modelado y almacenamiento</span><span lang="en">Modeling &amp; storage</span></h3><div class="chips" style="margin:0"><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">BigQuery</span><span class="chip">Star schema</span><span class="chip">ETL</span></div></div>
+      <div class="card"><h3><span lang="es">Servicios e infraestructura</span><span lang="en">Services &amp; infrastructure</span></h3><div class="chips" style="margin:0"><span class="chip">FastAPI</span><span class="chip">Docker</span><span class="chip">Docker Compose</span><span class="chip">Git / GitHub</span><span class="chip">GitHub Actions (CI)</span><span class="chip">pytest</span><span class="chip">Render</span></div></div>
       <div class="card"><h3><span lang="es">Gestión y reporte</span><span lang="en">Management &amp; reporting</span></h3><div class="chips" style="margin:0"><span class="chip">Excel avanzado</span><span class="chip">Power BI</span><span class="chip">SAP / ERP</span><span class="chip">KPIs</span><span class="chip">ISO 9001 · 14001 · 45001</span></div></div>
     </div>
   </div>
@@ -519,6 +552,7 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.85rem;border-top:1px so
       <p lang="en">I document my projects on Medium (in Spanish).</p>
     </div>
     <div class="articles">
+      <a class="article" href="https://medium.com/@kevinsrm19/pipeline-etl-de-ventas-con-airflow-pruebas-y-ci-validar-antes-de-cargar-759e2e20d627" target="_blank" rel="noopener"><small><span lang="es">Orquestación</span><span lang="en">Orchestration</span></small><b>Pipeline ETL de ventas con Airflow, pruebas y CI: validar antes de cargar</b></a>
       <a class="article" href="https://medium.com/@kevinsrm19/pipeline-en-tiempo-real-con-docker-kafka-y-spark-structured-streaming-7f500eeafa1f" target="_blank" rel="noopener"><small>Streaming</small><b>Pipeline en tiempo real con Docker, Kafka y Spark Structured Streaming</b></a>
       <a class="article" href="https://medium.com/@kevinsrm19/data-warehouse-de-almac%C3%A9n-laboratorio-cl%C3%ADnico-modelado-dimensional-mysql-ba9674ebb75d" target="_blank" rel="noopener"><small>Data Warehouse</small><b>Data Warehouse de Almacén — Laboratorio Clínico: Modelado Dimensional (MySQL)</b></a>
       <a class="article" href="https://medium.com/@kevinsrm19/pipeline-etl-en-python-de-un-cat%C3%A1logo-transaccional-a-un-data-warehouse-458acace8819" target="_blank" rel="noopener"><small>ETL</small><b>Pipeline ETL en Python: de un catálogo transaccional a un Data Warehouse</b></a>
