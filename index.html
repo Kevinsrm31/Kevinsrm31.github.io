@@ -60,6 +60,9 @@ header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--b
 .hero h1{font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 14px;font-weight:800}
 .hero .role{font-size:clamp(1.05rem,2.2vw,1.3rem);color:var(--muted);margin:0 0 22px;font-weight:500}
 .hero p.lead{max-width:720px;font-size:1.05rem;margin:0 0 28px}
+.hero-top{display:flex;align-items:center;justify-content:space-between;gap:32px}
+.avatar{flex:none;width:168px;height:168px;border-radius:50%;object-fit:cover;border:4px solid var(--surface);box-shadow:0 0 0 2px var(--accent),var(--shadow)}
+@media (max-width:760px){.hero-top{flex-direction:column-reverse;align-items:flex-start;gap:20px}.avatar{width:112px;height:112px}}
 .cta{display:flex;flex-wrap:wrap;gap:10px}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font-weight:600;font-size:.95rem;border:1px solid var(--border);background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
 .btn:hover{text-decoration:none;border-color:var(--accent)}
@@ -184,12 +187,17 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.85rem;border-top:1px so
 <!-- HERO -->
 <div class="hero">
   <div class="wrap">
-    <p class="eyebrow">// Data Engineer · Trujillo / Chimbote, Perú</p>
-    <h1>Kevin Steven Reyes Morocho</h1>
-    <p class="role">
-      <span lang="es">Ingeniero Industrial y Civil · Ingeniería de Datos</span>
-      <span lang="en">Industrial &amp; Civil Engineer · Data Engineering</span>
-    </p>
+    <div class="hero-top">
+      <div>
+        <p class="eyebrow">// Data Engineer · Trujillo / Chimbote, Perú</p>
+        <h1>Kevin Steven Reyes Morocho</h1>
+        <p class="role">
+          <span lang="es">Ingeniero Industrial y Civil · Ingeniería de Datos</span>
+          <span lang="en">Industrial &amp; Civil Engineer · Data Engineering</span>
+        </p>
+      </div>
+      <img class="avatar" src="img/kevin-reyes.jpg" alt="Kevin Steven Reyes Morocho" width="168" height="168">
+    </div>
     <p class="lead">
       <span lang="es">Más de 5 años en operaciones, mantenimiento y gestión SSOMA en los sectores minero e industrial, consolidando y reportando indicadores para la toma de decisiones. A esa base sumo ingeniería de datos —SQL, Python, PySpark, Kafka, Docker y APIs— para construir modelos, pipelines y servicios que convierten datos operativos en decisiones.</span>
       <span lang="en">5+ years in operations, maintenance, and HSE management in the mining and industrial sectors, consolidating and reporting indicators for decision-making. On top of that foundation I build data engineering solutions —SQL, Python, PySpark, Kafka, Docker, and APIs— turning operational data into decisions.</span>
@@ -209,7 +217,7 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.85rem;border-top:1px so
     <div class="stats">
       <div class="stat"><b>9</b><span lang="es">proyectos publicados</span><span lang="en">published projects</span></div>
       <div class="stat"><b>7</b><span lang="es">artículos técnicos</span><span lang="en">technical articles</span></div>
-      <div class="stat"><b>5</b><span lang="es">certificaciones en datos</span><span lang="en">data certifications</span></div>
+      <div class="stat"><b>6</b><span lang="es">certificaciones en datos</span><span lang="en">data certifications</span></div>
       <div class="stat"><b>5+</b><span lang="es">años en operaciones</span><span lang="en">years in operations</span></div>
     </div>
   </div>
@@ -533,6 +541,8 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.85rem;border-top:1px so
       <h2><span lang="es">Certificaciones</span><span lang="en">Certifications</span></h2>
     </div>
     <div class="certs">
+      <div class="cert"><div class="ic">DE</div><div><b><span lang="es">Programa AI Data Engineer</span><span lang="en">AI Data Engineer Program</span></b><span class="meta-c">Datapath · <span lang="es">nov. 2026 · 105 horas académicas</span><span lang="en">Nov 2026 · 105 academic hours</span> · ID DATAPATH-003613-1A1AD765578</span><a class="cert-link" href="certificados/ai-data-engineer-certificado.png" target="_blank" rel="noopener"><span lang="es">Ver certificado ↗</span><span lang="en">View certificate ↗</span></a></div></div>
+      <div class="cert"><div class="ic">1.º</div><div><b><span lang="es">Primer lugar del programa AI Data Engineer</span><span lang="en">First place in the AI Data Engineer program</span></b><span class="meta-c">Datapath · <span lang="es">Diploma de reconocimiento · 2026</span><span lang="en">Diploma of recognition · 2026</span></span><a class="cert-link" href="certificados/ai-data-engineer-primer-lugar.png" target="_blank" rel="noopener"><span lang="es">Ver diploma ↗</span><span lang="en">View diploma ↗</span></a></div></div>
       <div class="cert"><div class="ic">API</div><div><b><span lang="es">Fundamentos de consumo y construcción de APIs con Python</span><span lang="en">Fundamentals of Consuming and Building APIs with Python</span></b><span class="meta-c">Datapath · <span lang="es">oct. 2026</span><span lang="en">oct 2026</span> · ID rBJCRkLD</span><a class="cert-link" href="certificados/apis-con-python.pdf" target="_blank" rel="noopener"><span lang="es">Ver certificado ↗</span><span lang="en">View certificate ↗</span></a></div></div>
       <div class="cert"><div class="ic">SP</div><div><b>Apache Spark Fundamentals</b><span class="meta-c">Datapath · <span lang="es">sept. 2026</span><span lang="en">Sep 2026</span> · ID 0YwTjnv2</span><a class="cert-link" href="certificados/apache-spark-fundamentals.pdf" target="_blank" rel="noopener"><span lang="es">Ver certificado ↗</span><span lang="en">View certificate ↗</span></a></div></div>
       <div class="cert"><div class="ic">SQL</div><div><b>SQL Para Todos — Google Cloud / BigQuery</b><span class="meta-c">Datapath · <span lang="es">sept. 2026</span><span lang="en">Sep 2026</span> · ID 7Vrce2WN</span><a class="cert-link" href="certificados/sql-para-todos.pdf" target="_blank" rel="noopener"><span lang="es">Ver certificado ↗</span><span lang="en">View certificate ↗</span></a></div></div>
